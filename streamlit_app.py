@@ -5,8 +5,13 @@ import requests
 import snowflake.connector
 from urllib.error import URLError
 
-title = st.text_input('Movie title', 'Life of Brian')
-st.write('The current movie title is', title)
+title = st.text_input('what fruit would you like to add')
+if st.button('Add a fruit to the list'):
+    st.write('Why hello there')
+else:
+    st.write('Goodbye')
+
+
 streamlit.title('My Parents New Healthy Diner')
 
 streamlit.header('Breakfast Menu')
