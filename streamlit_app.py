@@ -7,7 +7,9 @@ from urllib.error import URLError
 
 title = st.text_input('what fruit would you like to add')
 if st.button('Add a fruit to the list'):
-    st.write('Why hello there')
+   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+   back_from_function = insert_row_snowflake(title)
+   st.text(back_from_function)
 else:
     st.write('Goodbye')
 
