@@ -70,7 +70,15 @@ def insert_row_snowflake(new_fruit):
    with my_cnx.cursor() as my_cur:
      my_cur.execute("insert into fruit_load_list values('" + new_fruit +"')")
      return"Thanks for adding" + new_fruit
- fruit_choice = streamlit.text_input('What fruit would you like information about?')     
+ 
+streamlit.header("Fruityvice Fruit Advice!")
+try:
+fruit_choice = streamlit.text_input('What fruit would you like information about?')   
+ if not fruit_choice:
+      streamlit.error("Please select a fruit to get information.")
+  except URLError as e:
+   streamlit.error()
+
  add_my_fruit = streamlit.text_input('what fruit would you like to add?')
  if streamlit.button('add a fruit to thr list'):
    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
