@@ -1,4 +1,5 @@
 import streamlit
+import streamlit as st
 import pandas
 import requests
 import snowflake.connector
@@ -72,8 +73,8 @@ def insert_row_snowflake(new_fruit):
      return"Thanks for adding" + new_fruit
  
 streamlit.header("Fruityvice Fruit Advice!")
-title = streamlit.text_input('Movie title', 'Life of Brian')
-streamlit.write('The current movie title is', title)
+title = st.text_input('Movie title', 'Life of Brian')
+st.write('The current movie title is', title)
 
  #add_my_fruit = streamlit.text_input('what fruit would you like to add?')
 '''
